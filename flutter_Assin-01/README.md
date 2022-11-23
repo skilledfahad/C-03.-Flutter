@@ -1,6 +1,6 @@
 # flutter_default
 
-this project contain default for new projects
+this project contains default features for a new flutter project
 
 ## Getting Started
 
