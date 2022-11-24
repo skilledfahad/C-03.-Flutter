@@ -76,14 +76,14 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.all(2),
                 child: UserAccountsDrawerHeader(
                   decoration: const BoxDecoration(
-                      color: Colors.cyan,
+                      color: Colors.blueGrey,
                       image: DecorationImage(
                         image: NetworkImage('https://www.digiedupro.com/media/2020/07/Beijing_Institute_of_Graphic_Communication_Slider_4.jpg'),
                         fit: BoxFit.cover,
                   )
                   ),
-                  accountName: Text("Demo_App"),
-                  accountEmail: Text("fahad.itwork@gmail.com"),
+                  accountName: Text("Beijing Institute of Graphic Communication",style: TextStyle(backgroundColor: Colors.black54,fontWeight: FontWeight.bold,fontSize: 14)),
+                  accountEmail: Text("fahad.bigc@gmail.com",style: TextStyle(fontSize: 10,backgroundColor: Colors.black38)),
                   currentAccountPicture: Image.network("https://lh3.googleusercontent.com/p/AF1QipN6O9nyN-k9DZjyqwYCllByMaTTrK-u8yO_1pCb=s680-w680-h510"),
                 )
             ),
@@ -92,15 +92,41 @@ class MyHomePage extends StatelessWidget {
               leading: const Icon(Icons.home),
               title: const Text("Home"),
               onTap: (){MySnackBar("_button",context);},
-              trailing: const Icon(Icons.add),
               selected: true,),
             ListTile(leading: Icon(Icons.notifications),title: Text("Notifications"),onTap: (){MySnackBar("_button",context);}),
             ListTile(leading: Icon(Icons.schedule),title: Text("Schedule"),onTap: (){MySnackBar("_button",context);}),
             ListTile(leading: Icon(Icons.menu_book),title: Text("Library"),onTap: (){MySnackBar("_button",context);},enabled: false,
             trailing: Text("Under work"),),
-            ListTile(leading: Icon(Icons.newspaper),title: Text("Results"),onTap: (){MySnackBar("_button",context);}),
+            ListTile(leading: Icon(Icons.payment),title: Text("Payment"))
+
           ]
         )
+      ),
+
+
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(2),
+              child: UserAccountsDrawerHeader(
+                decoration:BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.blue,
+                    image: DecorationImage(
+                      image: NetworkImage("https://media-exp1.licdn.com/dms/image/C4E16AQGWmAXE_JNttA/profile-displaybackgroundimage-shrink_200_800/0/1625588202764?e=2147483647&v=beta&t=8xtv2NKc68DV_yg_oU66u9RBJegFv06so9nygVr64r4"),
+                      fit: BoxFit.contain,)),
+                accountName: Text("Fahad Hossen"),
+                accountEmail: Text("fahad.itwork@gmail.com"),
+                currentAccountPicture: Image.network("https://media-exp1.licdn.com/dms/image/C4E03AQGLFk_YzoDIbw/profile-displayphoto-shrink_800_800/0/1625588148899?e=2147483647&v=beta&t=CI1Mv9_vaWHN7xcOvDk1nxTYZkgBMtmh2ycBFKeYih0")
+              )
+            ),
+
+            ListTile(leading: Icon(Icons.person),title: Text("ID : 2021BE020")),
+            ListTile(leading: Icon(Icons.newspaper),title: Text("Results"),onTap: (){MySnackBar("_button",context);}),
+            ListTile(leading: Icon(Icons.drive_file_move),title: Text("Assignment"),onTap: (){MySnackBar("_button",context);}),
+          ]
+        ),
       ),
     );
   }
