@@ -13,12 +13,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       darkTheme: ThemeData(primarySwatch: Colors.grey),
       color: Colors.white10,
-      home: const MyHomePage());
+      home: MyHomePage());
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
+
+  ButtonStyle buttonStyle= ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))
+            );
 
   MySnackBar(message,context){
     return ScaffoldMessenger.of (context).showSnackBar(
@@ -122,12 +128,110 @@ class MyHomePage extends StatelessWidget {
               )
             ),
 
-            ListTile(leading: Icon(Icons.person),title: Text("ID : 2021BE020")),
+            ListTile(leading:(Icon(Icons.person,color: Colors.red)) ,title: Text("Md Fahad Hossen",style: TextStyle(fontSize: 14),),subtitle: Text("ID : 2021BE020",style: TextStyle(fontSize: 11),)),
             ListTile(leading: Icon(Icons.newspaper),title: Text("Results"),onTap: (){MySnackBar("_button",context);}),
             ListTile(leading: Icon(Icons.drive_file_move),title: Text("Assignment"),onTap: (){MySnackBar("_button",context);}),
           ]
         ),
       ),
+
+
+      body: Column(
+        children: [
+
+
+        //  Part 1++++++++++++++++++++++=
+          Expanded(
+              flex: 4,
+              child:
+                Container(
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                      color: Color(0xff9effff),
+                      border: Border.all(width: 2,color: Color(0xff0890ff)),
+                      borderRadius: BorderRadius.circular(15)),
+                  alignment: Alignment.center,
+                  child: Text("C1",
+                          style: TextStyle(
+                              fontSize:40,
+                              fontWeight: FontWeight.bold)
+                  )
+              )
+          ),
+
+
+          //  Part 2++++++++++++++++++++++=
+          Expanded(
+              flex: 4,
+              child:
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+
+                  // C2 R1+++++++++++++++++
+                  Expanded(
+                       flex: 5,
+                       child: Container(
+                         margin: EdgeInsets.all(2),
+                           decoration: BoxDecoration(
+                               color: Color(0xfff58484),
+                               border: Border.all(width: 2,color: Color(0xff471313)),
+                               borderRadius: BorderRadius.circular(15)),
+                           alignment: Alignment.center,
+                           child: Text("C2 R1")
+                       )),
+
+                  // C2 R2+++++++++++++++++
+                  Expanded(
+                      flex: 5,
+                      child:
+                      Column( children: [
+
+                              Expanded(
+                                flex: 5,
+                                child: Container(
+                                    margin: EdgeInsets.all(2),
+                                    decoration: BoxDecoration(
+                                        color: Color(0xff5cff6c),
+                                        border: Border.all(width: 2,color: Color(0xff049902)),
+                                        borderRadius: BorderRadius.circular(15)),
+                                    alignment: Alignment.center,
+                                    child: Text("C2 R2 C1")),
+                              ),
+
+                              Expanded(
+                                flex: 5,
+                                child:
+                                Container(
+                                  margin: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffd67de8),
+                                      border: Border.all(width: 2,color: Color(0xff750c8a)),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  alignment: Alignment.center,
+                                  child: Text("C2 R2 C2"),)
+                              )
+                            ],
+                          )
+                          )
+                ],
+              )
+          ),
+
+
+          //  Part 3++++++++++++++++++++++=
+          Expanded(
+              flex: 2,
+              child:Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(onPressed: (){MySnackBar("_textbutton", context);}, child: Text("_textbutton")),
+                  ElevatedButton(onPressed: (){MySnackBar("_elevetedbutton", context);}, child: Text("_elevetedbutton"),style: buttonStyle),
+                  OutlinedButton(onPressed: (){MySnackBar("_outlinedbutton", context);}, child: Text("_outlinedbutton"))
+                ],
+              )),
+        ]
+        )
     );
   }
 }
