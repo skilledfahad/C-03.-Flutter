@@ -167,7 +167,7 @@ class MyHomePage extends StatelessWidget {
                       border: Border.all(width: 2,color: Color(0xff0890ff)),
                       borderRadius: BorderRadius.circular(15)),
                   alignment: Alignment.center,
-                  child: Text("C1",
+                  child: const Text("C1",
                           style: TextStyle(
                               fontSize:40,
                               fontWeight: FontWeight.bold)
