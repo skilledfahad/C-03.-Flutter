@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
+void main() {return runApp(const MyApp());}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,6 +28,23 @@ class MyHomePage extends StatelessWidget {
   MySnackBar(message,context){
     return ScaffoldMessenger.of (context).showSnackBar(
       SnackBar(content: Text(message),duration: const Duration(milliseconds: 500),)
+    );
+  }
+  myAlartMassage(context) {
+    return showDialog(
+        context: context,
+        builder:(BuildContext context){
+          return Expanded(
+            child: AlertDialog(
+              title: Text("Successful"),
+              content:Text("Can you see this?"),
+              actions:[
+                TextButton(onPressed: () {MySnackBar("Done", context); Navigator.of(context).pop();}, child: Text("No")),
+                ElevatedButton(onPressed: () {MySnackBar("Done", context); Navigator.of(context).pop();}, child: Text("Yes"))
+              ]
+            ),
+          );
+        }
     );
   }
 
@@ -140,7 +156,7 @@ class MyHomePage extends StatelessWidget {
         children: [
 
 
-        //  Part 1++++++++++++++++++++++=
+        //  Part 1++++++++++ C1 ++++++++++++=
           Expanded(
               flex: 4,
               child:
@@ -160,7 +176,7 @@ class MyHomePage extends StatelessWidget {
           ),
 
 
-          //  Part 2++++++++++++++++++++++=
+          //  Part 2++++++++++ C2 ++++++++++++
           Expanded(
               flex: 4,
               child:
@@ -168,7 +184,7 @@ class MyHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
 
-                  // C2 R1+++++++++++++++++
+                  // ++++++++++C2 R1+++++++++++++
                   Expanded(
                        flex: 5,
                        child: Container(
@@ -181,7 +197,7 @@ class MyHomePage extends StatelessWidget {
                            child: Text("C2 R1")
                        )),
 
-                  // C2 R2+++++++++++++++++
+                  // ++++++++++C2 R2++++++++++++
                   Expanded(
                       flex: 5,
                       child:
@@ -219,15 +235,16 @@ class MyHomePage extends StatelessWidget {
           ),
 
 
-          //  Part 3++++++++++++++++++++++=
+          //  Part 3+++++++++++ C3 +++++++++++
           Expanded(
               flex: 2,
               child:Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextButton(onPressed: (){MySnackBar("_textbutton", context);}, child: Text("_textbutton")),
-                  ElevatedButton(onPressed: (){MySnackBar("_elevetedbutton", context);}, child: Text("_elevetedbutton"),style: buttonStyle),
-                  OutlinedButton(onPressed: (){MySnackBar("_outlinedbutton", context);}, child: Text("_outlinedbutton"))
+                children:
+                [
+                  TextButton(onPressed: (){myAlartMassage(context);}, child: Text("_textbutton")),
+                  ElevatedButton(onPressed: (){myAlartMassage(context);}, child: Text("_elevetedbutton"),style: buttonStyle),
+                  OutlinedButton(onPressed: (){myAlartMassage(context);}, child: Text("_outlinedbutton"))
                 ],
               )),
         ]
