@@ -1,0 +1,10 @@
+mediaquiry // body:LayoutBuilder=>(context,constrain){print(constrain.______)} // body: OriantationBuilder(
+context, constrain){print(constrain.______)}
+
+media quirly always build// layout change a buld// oriantation change a build
+
+in Row Text Fitted box => fit type
+
+AspectRasio  (16/16) {hight/weight}
+
+FractionalSizeBox
